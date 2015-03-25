@@ -1,0 +1,12 @@
+# Dummy file that shows you how you could create a simple recipe added to the deploy namespace.
+# You would invoke this task using
+
+namespace :deploy do
+	desc 'Dummy task to show how another task can be created'
+	task :dummy do
+		on roles(:all) do |host|
+			# Example: list contents of the "deploy_to" folder:
+			execute :"ls -l #{fetch(:deploy_to)}"
+		end
+	end
+end
