@@ -1,0 +1,15 @@
+namespace :frontal do
+	desc 'Flushes memcached using netcat'
+	task :flush do
+		on roles(:web) do |host|
+			execute :"echo 'flush_all' | nc localhost 11211"
+		end
+	end
+	
+	desc 'Sets apache permissions'
+	task :chown do
+		on roles(:web) do |host|
+			execute :"chown -R apache:apache #{fetch(:deploy_to)}/current"
+		end
+	end
+end

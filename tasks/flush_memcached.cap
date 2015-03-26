@@ -1,8 +1,0 @@
-namespace :deploy do
-	desc 'Flushes memcached using netcat'
-	task :flush do
-		on roles(:web) do |host|
-			execute :"echo 'flush_all' | nc localhost 11211"
-		end
-	end
-end
