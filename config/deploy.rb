@@ -34,7 +34,6 @@ set :keep_releases, 15
 set :scm, :git
 set :format, :pretty
 set :log_level, :info
-set :pty, true
 
 
 
